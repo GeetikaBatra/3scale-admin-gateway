@@ -59,6 +59,15 @@ objects:
     - type: ConfigChange
     replicas: ${{REPLICAS}}
 - apiVersion: v1
+  kind: Secret
+  metadata:
+    name: secret_keys
+  type: Opaque
+  data:
+    three_scale_api_access_key : ${THREE_SCALE_API_ACCESS_KEY}
+    three_scale_api_account_id : ${THREE_SCALE_API_ACCOUNT_ID}
+
+- apiVersion: v1
   kind: Service
   metadata:
     labels:
